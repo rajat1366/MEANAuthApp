@@ -12,18 +12,20 @@ router.post("/register",(req , res, next)=>{
 		username: req.body.username,
 		password: req.body.password
 	});
-	User.getUserByUsername(newUser,(err,user)=>{
-			if(err) throw err;
-			if(user) {
+	User.getUserByUsername(newUser.username,(err,user)=>{
+			
+			if(err) console.log(err);
+			
+			else if(user) {
 				res.json({success:false,message:'User Already Exists'});
 			} else {
 					User.getUserByEmail(newUser.email,(err,user)=>{
-						if(err) throw err;
+						if(err) console.log(err);
 						if(user) {
 							res.json({success:false,message:'Email Already Registered'});
 						} else {
 							User.addUser(newUser,(err, user)=>{
-								if(err) throw err;
+								if(err) console.log(err);
 								if(err){
 									res.json({success:false,message:'Failed to register user'});
 								} else {
