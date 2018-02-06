@@ -1,3 +1,3 @@
 # MEANAuthApp
 
-deployed at https://tranquil-refuge-70347.herokuapp.com
+deployed at https://stark-caverns-29469.herokuapp.com/
